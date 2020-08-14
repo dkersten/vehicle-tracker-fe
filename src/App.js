@@ -36,14 +36,29 @@ const App = () => {
 
     console.log("submitting")
 
-    setCarName('')
-    setCarManufacturer('')
-    setCarPrice('')
-    setCarClass('')
-    setCarAvailability('')
+    fetch('http://localhost:3000/vehicles', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: carName,
+        manufacturer: carManufacturer,
+        price: carPrice,
+        vclass: carClass,
+        availability: carAvailability
+      })
+    })
+      .then(resp => resp.json())
+      .then(() => {
+        setCarName('')
+        setCarManufacturer('')
+        setCarPrice('')
+        setCarClass('')
+        setCarAvailability('')
+      })
   }
-  
-  console.log(carName, carManufacturer, carPrice, carClass, carAvailability)
 
   return (
     <div className="App">
@@ -64,12 +79,47 @@ const App = () => {
 
         <div>
           <label style={{"paddingRight": "10px"}} htmlFor="setCarClass">Class</label>
-          <input type="text" name="setCarClass" value={carClass} onChange={handleClassChange} />
+          <select name="setCarClass" id="carClass" onChange={handleClassChange}>
+          <option value="">Choose Class</option>
+            <option value="super">Super</option>
+            <option value="boat">Boat</option>
+            <option value="commercial">Commercial</option>
+            <option value="compact">Compact</option>
+            <option value="coupe">Coupe</option>
+            <option value="cycle">Cycle</option>
+            <option value="emergency">Emergency</option>
+            <option value="helicopter">Helicopter</option>
+            <option value="industrial">Industrial</option>
+            <option value="military">Military</option>
+            <option value="motorcycle">Motorcycle</option>
+            <option value="muscle">Muscle</option>
+            <option value="off road">Off Road</option>
+            <option value="open wheel">Open Wheel</option>
+            <option value="plane">Plane</option>
+            <option value="sedan">Sedan</option>
+            <option value="service">Service</option>
+            <option value="sport">Sport</option>
+            <option value="sports classic">Sports Classic</option>
+            <option value="suv">SUV</option>
+            <option value="utility">Utility</option>
+            <option value="van">Van</option>
+          </select>
         </div>
 
         <div>
           <label style={{"paddingRight": "10px"}} htmlFor="setCarAvailability">Availability</label>
-          <input type="text" name="setCarAvailability" value={carAvailability} onChange={handleAvailabilityChange} />
+          <select name="setCarAvailability" id="availability" onChange={handleAvailabilityChange}>
+          <option value="">Select Option</option>
+            <option value="Legendary Motorsport">Legendary Motorsport</option>
+            <option value="Southern S.A. Super Autos">Southern S.A. Super Autos</option>
+            <option value="Warstock Cache & Carry">Warstock Cache & Carry</option>
+            <option value="Benny's Original Motor Works">Benny's Original Motor Works</option>
+            <option value="Elitás Travel">Elitás Travel</option>
+            <option value="DockTease">DockTease</option>
+            <option value="ArenaWar.tv">ArenaWar.tv</option>
+            <option value="Pedal and Metal Cycles">Pedal and Metal Cycles</option>
+            <option value="Other">Other</option>
+          </select>
         </div>
 
         <div>

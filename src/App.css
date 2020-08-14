@@ -11,7 +11,7 @@ label {
   margin-bottom: .25rem;
 }
 
-input {
+input, select {
   display: block;
   margin-left: 1rem;
   margin-bottom: .5rem;
@@ -32,3 +32,6 @@ input[type="submit"] {
   font-weight: 700;
 }
 
+body {
+  background: #2b2d42;
+}
