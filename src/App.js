@@ -1,65 +1,65 @@
 import React from 'react';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 import VehicleContainer from './containers/VehicleContainer.js';
 
 const App = () => {
 
-  const [carName, setCarName] = useState('')
-  const [carManufacturer, setCarManufacturer] = useState('')
-  const [carPrice, setCarPrice] = useState('')
-  const [carClass, setCarClass] = useState('')
-  const [carAvailability, setCarAvailability] = useState('')
+  // const [carName, setCarName] = useState('')
+  // const [carManufacturer, setCarManufacturer] = useState('')
+  // const [carPrice, setCarPrice] = useState('')
+  // const [carClass, setCarClass] = useState('')
+  // const [carAvailability, setCarAvailability] = useState('')
 
-  const handleNameChange = e => {
-    setCarName(e.target.value)
-  }
+  // const handleNameChange = e => {
+  //   setCarName(e.target.value)
+  // }
 
-  const handleManufacturerChange = e => {
-    setCarManufacturer(e.target.value)
-  }
+  // const handleManufacturerChange = e => {
+  //   setCarManufacturer(e.target.value)
+  // }
 
-  const handlePriceChange = e => {
-    setCarPrice(e.target.value)
-  }
+  // const handlePriceChange = e => {
+  //   setCarPrice(e.target.value)
+  // }
 
-  const handleClassChange = e => {
-    setCarClass(e.target.value)
-  }
+  // const handleClassChange = e => {
+  //   setCarClass(e.target.value)
+  // }
 
-  const handleAvailabilityChange = e => {
-    setCarAvailability(e.target.value)
-  }
+  // const handleAvailabilityChange = e => {
+  //   setCarAvailability(e.target.value)
+  // }
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  // const handleSubmit = e => {
+  //   e.preventDefault()
 
-    console.log("submitting")
+  //   console.log("submitting")
 
-    fetch('http://localhost:3000/vehicles', {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        name: carName,
-        manufacturer: carManufacturer,
-        price: carPrice,
-        vclass: carClass,
-        availability: carAvailability
-      })
-    })
-      .then(resp => resp.json())
-      .then(() => {
-        setCarName('')
-        setCarManufacturer('')
-        setCarPrice('')
-        setCarClass('')
-        setCarAvailability('')
-      })
-  }
+  //   fetch('http://localhost:3000/vehicles', {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       name: carName,
+  //       manufacturer: carManufacturer,
+  //       price: carPrice,
+  //       vclass: carClass,
+  //       availability: carAvailability
+  //     })
+  //   })
+  //     .then(resp => resp.json())
+  //     .then(() => {
+  //       setCarName('')
+  //       setCarManufacturer('')
+  //       setCarPrice('')
+  //       setCarClass('')
+  //       setCarAvailability('')
+  //     })
+  // }
 
   return (
     <div>
