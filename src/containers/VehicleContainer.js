@@ -28,7 +28,14 @@ const VehicleContainer = () => {
     return(
         <Conatianer>
             {
-                cars.map(car => <CarCard />)
+                cars.map(car => <CarCard 
+                    id={car.id}
+                    name={car.name}
+                    manufacturer={car.manufacturer}
+                    price={car.price}
+                    vclass={car.vclass}
+                    availabilty={car.availabilty}
+                />)
             }
         </Conatianer>
     )

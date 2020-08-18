@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const CarCard = () => {
+const CarCard = (props) => {
 
     const CardContainer = styled.div`
         margin: .75rem .5rem;
@@ -19,7 +19,13 @@ const CarCard = () => {
     `
     
     return(
-        <CardContainer>Car</CardContainer>
+        <CardContainer>
+            <h1>{props.name}</h1>
+            <p>Manufacturer: {props.manufacturer}</p>
+            <h2>Price: {props.price}</h2>
+            <p>Availability: {props.availabilty}</p>
+            <p>Vehicle Class: {props.vclass}</p>
+        </CardContainer>
     )
 }
 
