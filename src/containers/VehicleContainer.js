@@ -1,28 +1,36 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import CarCard from './CarCard';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const VehicleContainer = () => {
-    const Button = styled.button`
-        background: transparent;
-        border-radius: 3px;
-        border: 2px solid palevioletred;
-        color: palevioletred;
-        margin: 0 1em;
-        padding: 0.25em 1em;
 
-        ${props => 
-            props.primary &&
-            css`
-                background: palevioletred;
-                color: white;
-        `}
+    const [cars, setCars] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:3000/vehicles")
+            .then(resp => resp.json())
+            .then(cars => setCars(cars))
+    }, [])
+
+    console.log(cars[0])
+
+    const Conatianer = styled.main`
+        margin: 2rem auto;
+        max-width: 968px;
+        color: white;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     `
     return(
-        <main>
-            Vehicle Container
-            <Button>Button</Button>
-            <Button primary>Button</Button>
-        </main>
+        <Conatianer>
+            {
+                cars.map(car => <CarCard />)
+            }
+        </Conatianer>
     )
 }
 

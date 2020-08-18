@@ -32,6 +32,19 @@ input[type="submit"] {
   font-weight: 700;
 }
 
-body {
-  background: #2b2d42;
+* {
+  box-sizing: border-box;
 }
+
+body {
+  background: #1F2833;
+}
+
+/* colors
+
+1F2833 --> dark grey/blue
+C5C6C7 --> grey
+66FCF1 --> teal
+45A29E --> darker teal
+
+*/
