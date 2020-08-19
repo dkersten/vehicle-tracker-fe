@@ -34,7 +34,7 @@ const VehicleContainer = () => {
                     manufacturer={car.manufacturer}
                     price={car.price}
                     vclass={car.vclass}
-                    availabilty={car.availabilty}
+                    availability={car.availability}
                 />)
             }
         </Conatianer>
