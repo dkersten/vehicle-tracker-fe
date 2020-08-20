@@ -11,7 +11,7 @@ const VehicleContainer = () => {
     const [themeDropdown, setThemeDropdown] = useState('dark')
 
     useEffect(() => {
-        fetch("http://localhost:3000/vehicles")
+        fetch("http://localhost:3000/vehicles?limit=10")
             .then(resp => resp.json())
             .then(cars => setCars(cars))
     }, [])
@@ -22,12 +22,21 @@ const VehicleContainer = () => {
         background: ${darkTheme ? '#1F2833' : '#F4F6FB'};
 
         form {
-            max-width: 400px;
+            max-width: 280px;
             background: ${darkTheme ? '#0A1421' : '#B8C9E8'};
             color: ${darkTheme ? '#F4F6FB' : '#1C1F4B'};
             margin-left: auto;
             margin-right: auto;
             padding: 1rem;
+
+            p {
+                display: inline-block;
+                margin-right: .5rem;
+            }
+
+            label { 
+                display: inline-block;
+            }
         }
     `
 
