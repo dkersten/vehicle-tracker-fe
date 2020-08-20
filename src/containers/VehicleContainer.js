@@ -13,7 +13,7 @@ const VehicleContainer = () => {
     const [carNumber, setCarNumber] = useState(0)
 
     useEffect(() => {
-        fetch("http://localhost:3000/vehicles?limit=10&offset=10")
+        fetch("http://localhost:3000/vehicles?limit=48&offset=0")
             .then(resp => resp.json())
             .then(cars => setCars(cars))
 
@@ -21,6 +21,15 @@ const VehicleContainer = () => {
             .then(resp => resp.json())
             .then(carLength => findNumOfCars(carLength))
     }, [])
+
+    // function to fetch cars based on pagination buttons
+    const getNewCars = (pageNum) => {
+        const offset = (pageNum * 48) - 48
+        console.log(pageNum, offset)
+        fetch(`http://localhost:3000/vehicles?limit=48&offset=${offset}`)
+            .then(resp => resp.json())
+            .then(cars => setCars(cars))
+    }
 
     // styling for background component
     const Background = styled.div`
@@ -110,6 +119,7 @@ const VehicleContainer = () => {
             </Container>
             <Pagination 
                 cars={carNumber}
+                getCarsFunc={getNewCars}
             />
         </Background>
     )
