@@ -56,13 +56,26 @@ const CarCard = (props) => {
             margin: 0;
         }
     `
+    const sanitizePrice = () => {
+        if (props.price !== "-") {
+            if (props.price.includes(",")) {
+                const updatedPrice = props.price.replace(",", "")
+                return parseInt(updatedPrice).toLocaleString()
+            } else {
+                return parseInt(props.price).toLocaleString()
+            }
+        } else {
+            return props.price
+        }
+    }
+    // sanitizePrice()
 
     return(
         <CardContainer>
             <img src="https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg" alt="image coming soon" />
             <div className="info-container">
                 <h1>{props.manufacturer} <span>{props.name}</span></h1>
-                <h2>Price: <span>${props.price}</span></h2>
+                <h2>Price: <span>${sanitizePrice()}</span></h2>
                 <p>Availability: <span>{props.availability}</span></p>
                 <p>Vehicle Class: <span>{props.vclass}</span></p>
             </div>
