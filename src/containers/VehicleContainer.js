@@ -1,6 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import CarCard from './CarCard';
+import Pagination from './Pagination';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
@@ -9,13 +10,19 @@ const VehicleContainer = () => {
     const [cars, setCars] = useState([])
     const [darkTheme, setTheme] = useState(true)
     const [themeDropdown, setThemeDropdown] = useState('dark')
+    const [carNumber, setCarNumber] = useState(0)
 
     useEffect(() => {
-        fetch("http://localhost:3000/vehicles?limit=10")
+        fetch("http://localhost:3000/vehicles?limit=10&offset=10")
             .then(resp => resp.json())
             .then(cars => setCars(cars))
+
+        fetch("http://localhost:3000/vehicles")
+            .then(resp => resp.json())
+            .then(carLength => findNumOfCars(carLength))
     }, [])
 
+    // styling for background component
     const Background = styled.div`
         width: 100%;
         height: 100%;
@@ -31,7 +38,7 @@ const VehicleContainer = () => {
 
             p {
                 display: inline-block;
-                margin-right: .5rem;
+                margin-right: .25rem;
             }
 
             label { 
@@ -40,6 +47,7 @@ const VehicleContainer = () => {
         }
     `
 
+    // styling for container component
     const Container = styled.main`
         margin: 0 auto;
         padding: 2rem 0;
@@ -51,6 +59,7 @@ const VehicleContainer = () => {
         justify-content: space-around;
     `
 
+    // function to toggle dark/light theme
     const handleThemeChange = e => {
         e.preventDefault()
 
@@ -62,6 +71,12 @@ const VehicleContainer = () => {
             setThemeDropdown('light')
         }
     }
+
+    // function to find length of car array/number of cars
+    const findNumOfCars = carLength => {
+        setCarNumber(carLength)
+    }
+
     return(
         <Background>
             <form>
@@ -81,7 +96,8 @@ const VehicleContainer = () => {
             </form>
             <Container>
                 {
-                    cars.map(car => <CarCard 
+                    cars.map(car => <CarCard
+                        key={car.id} 
                         id={car.id}
                         name={car.name}
                         manufacturer={car.manufacturer}
@@ -92,6 +108,9 @@ const VehicleContainer = () => {
                     />)
                 }
             </Container>
+            <Pagination 
+                cars={carNumber}
+            />
         </Background>
     )
 }
