@@ -3,11 +3,9 @@ import styled, { css } from 'styled-components';
 
 const CarCard = (props) => {
 
-    const [darkTheme, setTheme] = useState(false)
-
     const CardContainer = styled.div`
         margin: .75rem .5rem;
-        background: ${darkTheme ? '#0a1421' : '#b8c9e8'};
+        background: ${props.darkTheme ? '#0a1421' : '#b8c9e8'};
         flex-basis: calc(33% - 1rem);
         border-radius: 5px;
         box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -34,17 +32,17 @@ const CarCard = (props) => {
         }
 
         span {
-            color: ${darkTheme ? '#45A29E' : '#062ff1'}
+            color: ${props.darkTheme ? '#66FCF1' : '#062ff1'}
         }
 
         h1 {
-            color: ${darkTheme ? '#66FCF1' : '#1C1F4B'};
+            color: ${props.darkTheme ? '#45A29E' : '#1C1F4B'};
             font-size: 1.25rem;
             margin-top: 0;
         }
 
         h2 {
-            color: ${darkTheme ? '#45A29E' : '#1C1F4B'};
+            color: ${props.darkTheme ? '#45A29E' : '#1C1F4B'};
             font-size: 1.1rem;
         }
 
@@ -53,7 +51,7 @@ const CarCard = (props) => {
         }
 
         p {
-            color: ${darkTheme ? '#45A29E' : '#1C1F4B'};
+            color: ${props.darkTheme ? '#45A29E' : '#1C1F4B'};
             line-height: 1.4;
             margin: 0;
         }

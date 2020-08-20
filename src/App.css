@@ -1,4 +1,4 @@
-form {
+/* form {
   max-width: 400px;
   background-color: #cecece;
   margin-left: auto;
@@ -30,7 +30,7 @@ input[type="submit"] {
   border: none;
   font-size: 1.15rem;
   font-weight: 700;
-}
+} */
 
 * {
   box-sizing: border-box;
