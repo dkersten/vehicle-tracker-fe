@@ -10,6 +10,7 @@ const Pagination = (props) => {
         margin: 1rem auto 0;
         padding-bottom: 1rem;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
     `
 

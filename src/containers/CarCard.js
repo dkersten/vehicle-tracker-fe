@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const CarCard = (props) => {
@@ -68,11 +68,10 @@ const CarCard = (props) => {
             return props.price
         }
     }
-    // sanitizePrice()
 
     return(
         <CardContainer>
-            <img src="https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg" alt="image coming soon" />
+            <img className="vehicle-img" src="https://cdn.pixabay.com/photo/2017/08/04/05/37/coming-soon-2579123_960_720.jpg" alt="vehicle image coming soon" />
             <div className="info-container">
                 <h1>{props.manufacturer} <span>{props.name}</span></h1>
                 <h2>Price: <span>${sanitizePrice()}</span></h2>

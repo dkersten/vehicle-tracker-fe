@@ -7,7 +7,7 @@ const PageBtn = (props) => {
         background: #0A1421;
         padding: .5rem;
         color: #f4f6fb;
-        margin: 0 .2rem;
+        margin: .25rem .2rem;
 
         &:hover {
             cursor: pointer;
