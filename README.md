@@ -10,6 +10,8 @@ A responsive designed website with information about cars from the game GTA Onli
 
 A video of the current state of the app can be found [here](https://youtu.be/mfgNz3K1kII).
 
+The backend for this project can be found [here](https://github.com/dkersten/gtav-api)
+
 ### Built With ###
 
 The frontend is built with:
